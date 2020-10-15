@@ -1,0 +1,138 @@
+@import (once) "_variables";
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: @primaryFgColor;
+  color: @primaryFgColor;
+  direction: rtl;
+  font-size: 14pt;
+  width: 100%;
+  height: 100%;
+}
+
+p {
+  margin-bottom: 0.3em;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  @media screen and (min-width: @smallScreenWidth) {
+    &.modal {
+      align-items: center;
+    }
+  }
+}
+
+input[type="text"] {
+  background-color: transparent;
+  box-sizing: border-box;
+  border: 1px solid @activeBorderColor;
+  border-radius: 0.2em;
+  color: @secondaryFgColor;
+  display: block;
+  padding: 0.4em;
+  font-family: inherit;
+  font-size: 12pt;
+  text-align: center;
+  width: 100%;
+
+  &:focus {
+    border-color: @focusBorderColor;
+    color: @primaryFgColor;
+  }
+
+  &::placeholder {
+    color: @activeBorderColor;
+  }
+
+  &:disabled {
+    border-color: @inactiveBorderColor;
+    color: @inactiveBorderColor;
+
+    &::placeholder {
+      color: @inactiveBorderColor;
+    }
+  }
+}
+
+button,
+input[type="button"] {
+  background-color: @activeBorderColor;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 0.2em;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 10pt;
+  font-weight: bold;
+  padding: 0.5em;
+  min-width: 33%;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: @focusBorderColor;
+  }
+
+  &:disabled {
+    background-color: transparent;
+    border: 1px solid @inactiveBorderColor;
+    color: @inactiveFgColor;
+    cursor: not-allowed;
+  }
+
+  &.link {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: @activeBorderColor;
+    font-size: 12pt;
+    padding: 0;
+    min-width: 0;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: @focusBorderColor;
+    }
+
+    &:disabled {
+      color: @inactiveFgColor;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.input-group {
+  flex: 1;
+}
+
+.button-group {
+  border-top: 1px solid @activeBorderColor;
+  padding-top: 1em;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.small {
+  font-size: 12pt;
+
+  @media screen and (min-width: @smallScreenWidth) {
+    font-size: 10pt;
+  }
+}
+
+.dimmed {
+  color: @secondaryFgColor;
+}
+
+.right {
+  margin-left: auto;
+}

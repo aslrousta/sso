@@ -1,0 +1,32 @@
+msgid "title"
+msgstr "سیاه - سامانه یکپارچه احراز هویت"
+
+msgid "sign-in"
+msgstr "احراز هویت"
+
+msgid "phone"
+msgstr "تلفن همراه"
+
+msgid "phone-comment"
+msgstr "شماره تلفن همراه تنها برای ارسال پیامک تأیید و احراز هویت استفاده می‌شود و برای حفظ امنیت حریم شخصی، به طور کامل ذخیره نمی‌شود."
+
+msgid "send-sms"
+msgstr "ارسال پیامک"
+
+msgid "code"
+msgstr "کد تأیید"
+
+msgid "code-comment"
+msgstr "پیامکی حاوی کد تأیید ۵ رقمی برای شما ارسال شده است."
+
+msgid "verify"
+msgstr "تأیید"
+
+msgid "resend"
+msgstr "ارسال مجدد"
+
+msgid "login-success-message"
+msgstr "خوش آمدید!"
+
+msgid "redirect-message"
+msgstr "لطفاً تا بازگشت به صفحه پذیرنده کمی صبر کنید."

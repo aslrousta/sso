@@ -1,0 +1,111 @@
+@import (once) "_variables";
+
+@panelBgColor: white;
+@progressFgColor: @secondaryFgColor;
+@progressBgColor: @inactiveFgColor;
+
+@panelWidth: 500px;
+@panelMinHeight: 400px;
+
+.panel {
+  background-color: @panelBgColor;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 2em;
+  width: 100%;
+  height: 100%;
+
+  @media screen and (min-width: @smallScreenWidth) and (min-height: @panelMinHeight) {
+    border-radius: 0.5em;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
+    width: @panelWidth;
+    height: @panelMinHeight;
+  }
+
+  h1 {
+    color: @primaryFgColor;
+    display: block;
+    font-size: 24pt;
+    font-weight: normal;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1em;
+  }
+
+  .comment {
+    @media screen and (max-height: @panelMinHeight) {
+      display: none;
+    }
+  }
+
+  .progress {
+    background-color: @progressBgColor;
+    margin: -2em -2em 2em -2em;
+
+    .progress-bar {
+      background-color: @progressFgColor;
+      height: 0.3em;
+      transition: all;
+      transition-duration: 200ms;
+    }
+
+    &.one-quarter .progress-bar {
+      width: 25%;
+    }
+
+    &.three-quarter .progress-bar {
+      width: 75%;
+    }
+
+    &.one-third .progress-bar {
+      width: 33%;
+    }
+
+    &.two-third .progress-bar {
+      width: 66%;
+    }
+
+    &.half .progress-bar {
+      width: 50%;
+    }
+
+    &.completed .progress-bar {
+      width: 100%;
+    }
+  }
+
+  .step-wrapper {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+
+    .step {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      transition: all;
+      transition-duration: 200ms;
+
+      &.queued {
+        margin-inline-start: -@smallScreenWidth;
+
+        @media screen and (min-width: @smallScreenWidth) {
+          margin-inline-start: -@panelWidth;
+        }
+      }
+
+      &.passed {
+        margin-inline-start: @smallScreenWidth;
+
+        @media screen and (min-width: @smallScreenWidth) {
+          margin-inline-start: @panelWidth;
+        }
+      }
+    }
+  }
+}

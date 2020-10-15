@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  server:
+    image: aslrousta/sso:latest
+    container_name: sso_server
+    restart: unless-stopped
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"

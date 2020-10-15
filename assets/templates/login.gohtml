@@ -1,0 +1,61 @@
+{{define "login"}}
+{{template "header" .}}
+<div class="container modal">
+    <div class="panel">
+        <div id="progress" class="progress one-third">
+            <div class="progress-bar"></div>
+        </div>
+        <h1>{{t "sign-in"}}</h1>
+        <div class="step-wrapper">
+            <div id="phone-step" class="step">
+                <div class="input-group">
+                    <input type="text" id="phone" name="phone" placeholder='{{t "phone"}}' autofocus/>
+                    <span id="error" class="small dimmed"></span>
+                </div>
+                <div class="input-group comment">
+                    <span class="small dimmed"><i class="icofont-info-square"></i> {{t "phone-comment"}}</span>
+                </div>
+                <div class="button-group">
+                    <input type="button" id="send" value='{{t "send-sms"}}' onclick="submitPhone();"/>
+                </div>
+            </div>
+            <div id="code-step" class="step queued">
+                <div class="input-group">
+                    <input type="text" id="code" name="code" placeholder='{{t "code"}}'/>
+                    <span id="error" class="small dimmed"></span>
+                </div>
+                <div class="input-group comment">
+                    <span class="small dimmed"><i class="icofont-info-square"></i> {{t "code-comment"}}</span>
+                </div>
+                <div class="button-group">
+                    <input type="button" id="resend" class="link right" value='{{t "resend"}}' disabled/>
+                    <input type="button" id="verify" value='{{t "verify"}}' onclick="submitCode();"/>
+                </div>
+            </div>
+            <div id="success-step" class="step queued">
+                <div class="input-group">
+                    <p>{{t "login-success-message"}}</p>
+                    <p class="small dimmed"><i class="icofont-info-square"></i> {{t "redirect-message"}}</s>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+window.addEventListener('load', function() {
+    document.getElementById("phone").addEventListener('keyup', function(e) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            document.getElementById("send").click();
+        }
+    });
+    var code = document.getElementById("code").addEventListener('keyup', function(e) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            document.getElementById("verify").click();
+        }
+    });
+});
+</script>
+{{template "footer" .}}
+{{end}}
