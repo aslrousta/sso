@@ -1,5 +1,7 @@
 {{define "footer"}}
 <script src="/js?hash={{.Hash}}" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/svg-injector/1.1.3/svg-injector.min.js" crossorigin="anonymous"></script>
+<script>SVGInjector(document.querySelectorAll('img.inject-me'));</script>
 </body>
 </html>
 {{end}}

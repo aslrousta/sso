@@ -1,11 +1,13 @@
 {{define "login"}}
 {{template "header" .}}
 <div class="container modal">
-    <div class="panel">
+    <div class="login panel">
         <div id="progress" class="progress one-third">
             <div class="progress-bar"></div>
         </div>
-        <h1>{{t "sign-in"}}</h1>
+        <div class="logo">
+            <image class="inject-me" src="/image/logo.svg" alt="Logo"/>
+        </div>
         <div class="step-wrapper">
             <div id="phone-step" class="step">
                 <div class="input-group">

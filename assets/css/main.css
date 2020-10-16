@@ -328,3 +328,13 @@ input[type="button"].link:disabled {
     margin-inline-start: 500px;
   }
 }
+.login .logo {
+  display: block;
+  height: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+.login .logo img,
+.login .logo svg {
+  height: 100%;
+}

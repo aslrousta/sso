@@ -68,6 +68,9 @@ func main() {
 	r.HandleFunc("/css", cssHandler(c)).Methods(http.MethodGet)
 	r.HandleFunc("/js", jsHandler(c)).Methods(http.MethodGet)
 
+	imagesPath := filepath.Join(assetsPath, "images")
+	r.PathPrefix("/image").Handler(http.StripPrefix("/image", http.FileServer(http.Dir(imagesPath))))
+
 	http.ListenAndServe(":8080", r)
 }
 
