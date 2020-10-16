@@ -16,7 +16,7 @@
                     <span class="small dimmed"><i class="icofont-info-square"></i> {{t "phone-comment"}}</span>
                 </div>
                 <div class="button-group">
-                    <input type="button" id="send" value='{{t "send-sms"}}' onclick="submitPhone();"/>
+                    <button id="send" onclick="submitPhone();"><span>{{t "send-sms"}}</span></button>
                 </div>
             </div>
             <div id="code-step" class="step queued">
@@ -28,8 +28,14 @@
                     <span class="small dimmed"><i class="icofont-info-square"></i> {{t "code-comment"}}</span>
                 </div>
                 <div class="button-group">
-                    <input type="button" id="resend" class="link right" value='{{t "resend"}}' disabled/>
-                    <input type="button" id="verify" value='{{t "verify"}}' onclick="submitCode();"/>
+                    <button id="resend" class="link right" disabled/>
+                        <svg id="clock" width="16" height="16" viewBox="-9 -9 19 19" style="vertical-align: middle;">
+                            <circle cx="0" cy="0" r="8" style="stroke: currentColor; stroke-width: 2px; fill: none;"></circle>
+                            <path style="fill: currentColor; stroke: none;"></path>
+                        </svg>
+                        <span>{{t "resend"}}</span>
+                    </button>
+                    <button id="verify" onclick="submitCode();"><span>{{t "verify"}}</span></button>
                 </div>
             </div>
             <div id="success-step" class="step queued">

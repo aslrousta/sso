@@ -11,18 +11,25 @@ var submitPhone = function () {
   }, 500);
 
   var resendButton = document.getElementById("resend");
-  var resendTitle = resendButton.value;
+  var clock = document.getElementById("clock");
+  var clockArc = clock.getElementsByTagName("path")[0];
   var counter = 60;
 
-  resendButton.value = resendTitle + " (" + counter + ")";
-  var clock = setInterval(function () {
+  var clockTimer = setInterval(function () {
     counter--;
     if (counter == 0) {
       resendButton.disabled = false;
-      resendButton.value = resendTitle;
-      clearInterval(clock);
+      resendButton.removeChild(clock);
+      clearInterval(clockTimer);
     } else {
-      resendButton.value = resendTitle + " (" + counter + ")";
+      var theta = ((60 - counter) * Math.PI) / 30;
+      var x = 9 * Math.sin(theta);
+      var y = -9 * Math.cos(theta);
+      var largeArc = counter > 30 ? 0 : 1;
+      clockArc.setAttribute(
+        "d",
+        "M0,0 v-9 A9,9 0 " + largeArc + ",1 " + x + "," + y + " Z"
+      );
     }
   }, 1000);
 };
