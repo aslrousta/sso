@@ -22,9 +22,10 @@ func (e *Error) Unwrap() error {
 
 // NotFoundError reports a missing entity error.
 type NotFoundError struct {
-	Key string
+	Entity string
+	Key    string
 }
 
 func (e *NotFoundError) Error() string {
-	return fmt.Sprintf("entity not found (key = '%s')", e.Key)
+	return fmt.Sprintf("%s not found (key = '%s')", e.Entity, e.Key)
 }
